@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Major Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      background-image: url('static/images/background.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arimo', sans-serif;
+    }
+    .login {
+      /* Add your existing styles for .login class here */
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>Sales Prediction ML Model</h1>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="TV" placeholder="TV Ad budget" required="required" />
+      <input type="text" name="radio" placeholder="Radio Ad budget" required="required" />
+      <input type="text" name="newspaper" placeholder="Newspaper Ad budget" required="required" />
+      <button type="submit" class="btn btn-primary btn-block btn-large">Sales_Predict</button>
+    </form>
+    <br>
+    <br>
+    {{ To_unit_sale_expected }}
+  </div>
+</body>
+</html>
